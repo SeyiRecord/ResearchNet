@@ -21,5 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('researches','ResearchController');
 Route::resource('posts','PostController');
+Route::get('profile/show', 'UserController@show');
 Route::resource('profile','ProfileController');
-
+// Route::get('/profiles/editprofile', 'ProfileController@create');
+Route::get('/profiles/createprofile', 'ProfileController@create');
+// Route::resource('user','UserController');
+Route::post('userType','UserController@userType')->name('userType');

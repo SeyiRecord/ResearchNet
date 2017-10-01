@@ -17,7 +17,7 @@ class Profile extends Model
      * @var array
      */
     protected $fillable = [
-        'userName', 'fName', 'lName',
+        'fName', 'lName', 'profileSummary', 'city', 'state', 'country', 'profileImg',
     ];
 
     /**

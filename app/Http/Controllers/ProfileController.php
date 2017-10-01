@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Profile;
 
 class ProfileController extends Controller
 {
@@ -36,6 +37,10 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         //
+        $profile->fName= $request['fName'];
+        $profile->lName= $request['lName'];
+        // add other fields
+        $profile->save();
     }
 
     /**

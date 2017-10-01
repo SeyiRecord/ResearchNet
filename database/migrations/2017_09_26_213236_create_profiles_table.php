@@ -15,11 +15,15 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('profileID');
-             $table->string('userName', 32);
+            $table->string('userName', 32);
             $table->string('fName');
             $table->string('lName');
+            $table->text('profileSummary');
+            $table->string('city');
+            $table->string('state');
+            $table->string('country');
+            $table->binary('profileImg');
             $table->timestamps();
-            $table->rememberToken();
             
             $table->foreign('userName')->references('userName')->on('users');
         });

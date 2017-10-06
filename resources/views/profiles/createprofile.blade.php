@@ -10,7 +10,8 @@
                 <div class="panel-heading"><H2>{{ Auth::user()->userName }}</H2>Create Profile Dashboard</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method='POST' action='/profileform'>
+                    <!-- <form class="form-horizontal" method='POST' action="/profileform"> -->
+                        <form class="form-horizontal" method='POST' action="{{action('ProfileController@create')}} ">
                         <!-- <form class="form-horizontal" method="POST" action=""> -->
                         {{ csrf_field() }}
 

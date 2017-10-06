@@ -15,6 +15,8 @@ class ProfileController extends Controller
     public function index()
     {
         //
+        $profiles = Profile::all();
+        return view('profiles.index',compact('profiles'));
     }
 
     /**
@@ -22,9 +24,10 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        $users = $request->session()->get('userName');
         return view('profiles.createprofile');
     }
 
@@ -39,8 +42,16 @@ class ProfileController extends Controller
         //
         $profile->fName= $request['fName'];
         $profile->lName= $request['lName'];
+        $profile->profileSummary= $request['profileSummary'];
+        $profile->city= $request['city'];
+        $profile->state= $request['state'];
+        $profile->country= $request['country'];
+        $profile->profileImg= $request['profileImg'];
+        
         // add other fields
         $profile->save();
+        
+        return redirect('/welcome');
     }
 
     /**
@@ -87,5 +98,7 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+        Profile::find($id)->delete();
+        return redirect('profiles');
     }
 }

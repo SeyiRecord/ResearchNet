@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Profile;
+use Auth;
 
 class ProfileController extends Controller
 {
@@ -26,7 +27,6 @@ class ProfileController extends Controller
      */
     public function create(Request $request)
     {
-        //
         $users = $request->session()->get('userName');
         return view('profiles.createprofile');
     }
@@ -39,7 +39,8 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $profile = new Profile();
+        $profile->userName = Auth::user()->userName ;
         $profile->fName= $request['fName'];
         $profile->lName= $request['lName'];
         $profile->profileSummary= $request['profileSummary'];
@@ -51,7 +52,7 @@ class ProfileController extends Controller
         // add other fields
         $profile->save();
         
-        return redirect('/welcome');
+        return redirect('/');
     }
 
     /**

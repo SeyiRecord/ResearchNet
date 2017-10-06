@@ -20,11 +20,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('profile/show', 'UserController@show');
-Route::resource('profile','ProfileController');
 Route::get('/profiles/createprofile', 'ProfileController@create');
-Route::post('/profileform', 'ProfileController@store');
+Route::post('/profiles/createprofile', 'ProfileController@store');
 Route::post('userType','UserController@userType')->name('userType');
+Route::resource('profiles','ProfileController');
 
+// Route::post('/profileform', 'ProfileController@store');
 // Route::resource('researches','ResearchController');
 // Route::resource('posts','PostController');
 // Route::resource('user','UserController');

@@ -18,15 +18,27 @@
         <tbody>
         @foreach ($profiles as $profile)
             <tr>
-                <td>{{ $profile->user->id }}</td>
-                <td>{{ $profile->user->fName }}</td>
-                <td>{{ $profile->user->lName }}</td>
-                <td>{{ $profile->user->profileSummary }}</td>
-                <td>{{ $profile->user->city }}</td>
-                <td>{{ $profile->user->state }}</td>
+                <td>{{ $profile->profileID }}</td>
+                <td>{{ $profile->fName }}</td>
+                <td>{{ $profile->lName }}</td>
+                <td>{{ $profile->profileSummary }}</td>
+                <td>{{ $profile->city }}</td>
+                <td>{{ $profile->state }}</td>
                 <td>{{ $profile->country}}</td>
 
-            </tr>
+            </tr> 
+            
+            <!-- <tr>
+                <td>User Name</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Profile Summary</td>
+                <td>City</td>
+                <td>State</td>
+                <td>Country</td>
+
+            </tr>-->
+            
         @endforeach
         </tbody>
     </table>

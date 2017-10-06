@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{!! Form::open(['url' => 'profiles']) !!}
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -10,11 +10,10 @@
                 <div class="panel-heading"><H2>{{ Auth::user()->userName }}</H2>Create Profile Dashboard</div>
 
                 <div class="panel-body">
-                    <!-- <form class="form-horizontal" method='POST' action="/profileform"> -->
-                        <form class="form-horizontal" method='POST' action="{{action('ProfileController@create')}} ">
-                        <!-- <form class="form-horizontal" method="POST" action=""> -->
+                    
                         {{ csrf_field() }}
 
+{!! Form::open(['url' => 'profiles']) !!}
                                              
                         <div class="form-group{{ $errors->has('fName') ? ' has-error' : '' }}">
                             <label for="fName" class="col-md-4 control-label">First Name</label>
@@ -123,11 +122,10 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
 </div>
-{!! Form::close() !!}
 @endsection
